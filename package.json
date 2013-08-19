@@ -15,7 +15,7 @@
 	"keywords"        : ["utility methods", "library"],
 	"licenses"        : [ {
 		"type"        : "MIT",
-		"url"         : "https://raw.github.com/muigui/util/master/LICENSE"
+		"url"         : "https://raw.github.com/muigui/useful-util/master/LICENSE"
 	} ],
 	"main"            : "./index.js",
 	"name"            : "useful-util",
