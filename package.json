@@ -1,0 +1,30 @@
+{
+	"author"          : {
+		"name"        : "constantology",
+		"email"       : "christos@muigui.com",
+		"url"         : "http://muigui.com"
+	},
+	"description"     : "useful functions i never really know where to put",
+ 	"devDependencies" : {
+		"chai"        : "*",
+		"mocha"       : "*"
+ 	},
+ 	"engines"         : {
+ 		"node"        : ">= 0.8.x"
+ 	},
+	"keywords"        : ["utility methods", "library"],
+	"licenses"        : [ {
+		"type"        : "MIT",
+		"url"         : "https://raw.github.com/muigui/util/master/LICENSE"
+	} ],
+	"main"            : "./index.js",
+	"name"            : "useful-util",
+	"repository"      : {
+		"type"        : "git",
+		"url"         : "git@github.com:muigui/useful-util.git"
+	},
+	"scripts"         : {
+		"test"        : "mocha -c --ignore-leaks -R spec -u tdd ./test/runner.js"
+	},
+	"version"         : "0.0.1"
+}

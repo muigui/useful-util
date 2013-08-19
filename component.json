@@ -1,0 +1,15 @@
+{
+	"dependencies" : {},
+	"description"  : "useful functions i never really know where to put",
+	"development"  : {
+		"chaijs/chai"       : "*",
+		"visionmedia/mocha" : "*"
+	},
+	"keywords"     : [],
+	"license"      : "MIT",
+	"main"         : "index.js",
+	"name"         : "useful-util",
+	"repo"         : "muigui/useful-util",
+	"scripts"      : ["index.js"],
+	"version"      : "0.0.1"
+}
