@@ -1,5 +1,19 @@
 suite( 'muigui/useful-util', function() {
 
+	test( '<static> util.assign', function( done ) {
+		var expected = { one : { two : { three : true, four : [1, 2, 3, 4] } } },
+			returned = {};
+
+		util.assign( returned, 'one', {} );
+		util.assign( returned, 'one.two', {} );
+		util.assign( returned, 'one.two.three', true );
+		util.assign( returned, 'one.two.four', [1, 2, 3, 4] );
+
+		expect( returned ).to.eql( expected );
+
+		done();
+	} );
+
 	test( '<static> util.bless', function( done ) {
 		var expected = { foo : { bar : 'hello' } };
 

@@ -15,6 +15,29 @@
 
 ## API
 
+### assign( item:Object, path:String, value:Mixed ):Mixed
+Assign a `value` to an `item` using the given `path`.
+
+Returns the passed `value`.
+
+#### Example:
+
+```javascript
+
+	var util = require( 'useful-util' );
+
+    var data = {};
+
+    util.assign( data, 'one', {} );                   // data == { one : {} }
+
+    util.value( data, 'one.two', {} );                // data == { one : { two : {} } }
+
+    util.value( data, 'one.two.three', true );        // data == { one : { two : { three : true } } }
+
+    util.value( data, 'one.two.four', [1, 2, 3, 4] ); // data == { one : { two : { three : true, four : [1, 2, 3, 4] } } }
+
+```
+
 ### bless( namespace:String[, context:Object] ):Object
 Creates an Object representation of the passed `namespace` String and returns it.
 
@@ -42,7 +65,7 @@ If a `context` Object is given, the Object tree created will be added to the `co
 
 ```
 
-**IMPORTANT:** When using `util.bless` within a commonjs module: if you want your namespace Object to be assigned to the correct `module.exports`, then you should always pass the `module` instance as the context (`ctx`) of your namespace.
+**IMPORTANT:** When using `util.bless` within a commonjs module: if you want your namespace Object to be assigned to the correct `module.exports`, then you should always pass the `module` — not `module.exports` — instance as the context (`ctx`) of your namespace.
 
 #### Example:
 
@@ -59,7 +82,7 @@ If a `context` Object is given, the Object tree created will be added to the `co
     module.exports.foo.bar.Something = function() {};
 
 // if you want to include "exports" in your namespace, you can do so by placing a carat (^) at the start of the String
-    util.bless( '^exports.foo.bar', module ); // creates => module.exports.foo.bar
+    util.bless( 'exports.foo.bar', module ); // creates => module.exports.foo.bar
 
 // otherwise, you will end up creating an extra exports Object, e.g:
     util.bless( 'exports.foo.bar', module ); // creates => module.exports.exports.foo.bar
@@ -346,7 +369,7 @@ Performs a "deep copy" of all the properties in `source` **that are not already 
 
 This works similarly to `util.merge` except that existing properties are not overwritten.
 
-### value( object:Object, path:String ):Mixed
+### value( item:Object, path:String ):Mixed
 Returns the property value at the specified path in an Object.
 
 #### Example:

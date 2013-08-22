@@ -113,6 +113,30 @@
 		util      = module.exports = {
 			ENV         : ENV,
 			global      : root,
+			assign      : function assign( item, key, value ) {
+				var prop = key;
+
+				if ( util.exists( item ) ) {
+					if ( !!~key.indexOf( '.' ) ) {
+						key    = key.split( '.' );
+						prop   = key.pop();
+						item   = util.bless( key, item );
+					}
+
+					item[prop] = value;
+
+// we're using == instead of ===
+// because html attributes may coerce the value into a string when it is assigned, this is fine.
+					if ( item[prop] != value ) {
+						if ( typeof item.set == 'function' )
+							item.set( prop, value );
+						else if ( typeof item.setAttribute == 'function' )
+							item.setAttribute( prop, value );
+					}
+				}
+
+				return value;
+			},
 			bless       : function bless( ns, ctx ) {
 				if ( !Array.isArray( ns ) ) {
 					if ( typeof ns == 'string' )
@@ -253,6 +277,8 @@
 				return target;
 			},
 			value       : function value( item, key )  {
+				var val;
+
 				if ( !util.exists( item ) )
 					return UNDEF;
 
@@ -261,7 +287,6 @@
 
 				if ( isNaN( +key ) ) {
 					if ( !!~key.indexOf( '.' ) ) {
-						var val;
 						key = key.split( '.' );
 
 						while ( val = key.shift() )
