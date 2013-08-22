@@ -6,8 +6,8 @@
 	},
 	"description"     : "useful functions i never really know where to put",
  	"devDependencies" : {
-		"chai"        : "*",
-		"mocha"       : "*"
+		"chai"        : "latest",
+		"mocha"       : "latest"
  	},
  	"engines"         : {
  		"node"        : ">= 0.8.x"

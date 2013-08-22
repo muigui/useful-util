@@ -2,8 +2,8 @@
 	"dependencies" : {},
 	"description"  : "useful functions i never really know where to put",
 	"development"  : {
-		"chaijs/chai"       : "*",
-		"visionmedia/mocha" : "*"
+		"chaijs/chai"       : "latest",
+		"visionmedia/mocha" : "latest"
 	},
 	"keywords"     : [],
 	"license"      : "MIT",
